@@ -44,7 +44,6 @@ def stock_plataforma(plataforma):
 def busqueda_precio(p_min,p_max):
     lista_precios_encontrados = []
     for codigo,precio in inventario.items():
-        print(precio[0])
         if precio[0] >= p_min and precio[0] <= p_max:
             lista_precios_encontrados.append(juegos[codigo][0])
     
@@ -53,9 +52,8 @@ def busqueda_precio(p_min,p_max):
 
 def actualizar_precio(codigo, nuevo_precio):
     if buscar_codigo(codigo) == True:
-        if codigo in inventario:
-            codigo[0] = nuevo_precio
-        return True
+       for codigo,precio in inventario.items():
+           precio[0] = nuevo_precio
     else:
         return False
 
